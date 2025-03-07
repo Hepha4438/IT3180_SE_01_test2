@@ -1,10 +1,11 @@
-# Sử dụng image chính thức của OpenJDK 17
-FROM eclipse-temurin:17-jdk
-
-# Đặt thư mục làm việc trong container
+# Build stage
+FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
+COPY . .
+RUN ./mvnw package -DskipTests
 
-COPY target/IT3180_2024II_SE_01_test2-1.0-SNAPSHOT.jar /app.jar
-
-CMD ["java", "-jar", "/app.jar"]
-
+# Run stage
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+CMD ["java", "-jar", "app.jar"]
