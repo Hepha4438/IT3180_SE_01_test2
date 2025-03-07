@@ -12,9 +12,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:3000") // Cho phép React.js truy cập
+@CrossOrigin(origins = "https://it3180se01-1uqw934ab-hephas-projects.vercel.app") // Cho phép React.js truy cập
 public class UserController {
     @Autowired
     private UserService userService;
