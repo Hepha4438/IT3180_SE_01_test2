@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "https://it3180se01-1uqw934ab-hephas-projects.vercel.app") // Cho phép React.js truy cập
+@CrossOrigin(origins = "https://it3180se01-3xtilffi8-hephas-projects.vercel.app") // Cho phép React.js truy cập
 public class UserController {
     @Autowired
     private UserService userService;
